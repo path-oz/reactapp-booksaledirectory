@@ -37,8 +37,8 @@ function HomePage() {
                   <DropDown/>
                 </Grid>
 
-                <Grid item>
-                  <USAMaps sx={{ display: { xs: "none", xl: "block" } }} />
+                <Grid sx={{ display: { xs: "none", xl: "block" } }} item>
+                  <USAMaps />
                 </Grid>
               </Grid>
             </div>
