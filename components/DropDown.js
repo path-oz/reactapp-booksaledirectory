@@ -76,7 +76,7 @@ export default function DropDown() {
         }}
         PaperProps={{
           style: {
-            maxHeight: ITEM_HEIGHT * 4.5,
+            maxHeight: ITEM_HEIGHT * 6,
             width: '20ch',
           },
         }}
