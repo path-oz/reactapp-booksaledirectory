@@ -58,7 +58,6 @@ export default function DropDown() {
           aria-controls={open ? 'demo-customized-menu' : undefined}
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
-          aria-expanded={open ? 'true' : undefined}
           onClick={handleClickListItem}
         >
           <ListItemText
