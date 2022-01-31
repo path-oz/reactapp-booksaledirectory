@@ -13,7 +13,7 @@ import Head from 'next/head'
 function HomePage() {
   return (
     <>
-        
+      <CssBaseline />
       <main>
         <div>
           <Container maxWidth="sm">
@@ -37,8 +37,8 @@ function HomePage() {
                   <DropDown/>
                 </Grid>
 
-                <Grid sx={{ display: { xs: "none", xl: "block" } }} item>
-                  <USAMaps />
+                <Grid item>
+                  <USAMaps sx={{ display: { xs: "none", xl: "block" } }} />
                 </Grid>
               </Grid>
             </div>
