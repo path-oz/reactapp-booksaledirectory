@@ -1,13 +1,13 @@
 import {
-  Button,
   Typography,
-  Grid,
   Container,
   CssBaseline,
 } from "@mui/material";
-import DropDown from "../components/DropDown";
+import { connectToDatabase } from '../util/mongodb'
 
-const newjersey = () => {
+export default function newjersey( ) {
+
+
   return (
     <>
       <CssBaseline />
@@ -23,7 +23,7 @@ const newjersey = () => {
               
               New Jersey
             </Typography>
-            <DropDown />
+            
           </Container>
         </div>
       </main>
@@ -31,4 +31,21 @@ const newjersey = () => {
   );
 };
 
-export default newjersey;
+export async function getServerSideProps(context) {
+  const { db } = await connectToDatabase()
+
+  const data = await db.collection("states").find({}).limit(20).toArray();
+
+  const booksales = JSON.parse(JSON.stringify(data));
+  console.log(booksales);
+  const filtered = booksales.map(booksale => {
+    return {
+      title: booksale.title
+    }
+
+  })
+
+  return {
+    props: { booksales: filtered },
+  }
+}
