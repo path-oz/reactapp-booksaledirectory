@@ -8,7 +8,7 @@ import BooksaleCards from "../components/BooksaleCards";
 import { Grid } from "@mui/material";
 import { connectToDatabse } from '../util/mongodb';
 
-export default function newjersey({booksales}) {
+export default function newyork({booksales}) {
 
 
   return (
@@ -26,7 +26,7 @@ export default function newjersey({booksales}) {
             >
               
               
-              New Jersey
+              New York
             </Typography>
             <Grid container spacing={2} justifyContent="center">
               <Grid item>
@@ -50,7 +50,7 @@ export default function newjersey({booksales}) {
 export async function getServerSideProps(context) {
   const { db } = await connectToDatabse();
 
-  const data = await db.collection("states").find({"state":"New Jersey"}).limit(20).toArray();
+  const data = await db.collection("states").find({"state":"New York"}).limit(20).toArray();
 
   const booksales = JSON.parse(JSON.stringify(data));
   console.log(booksales);

@@ -15,7 +15,7 @@ function HomePage() {
       <CssBaseline />
       <main>
         <div>
-          <Container maxWidth="sm">
+          <Container maxWidth="md">
             
             <Typography
               variant="h2"

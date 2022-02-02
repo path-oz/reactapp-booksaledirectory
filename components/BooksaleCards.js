@@ -31,11 +31,11 @@ const ExpandMore = styled((props) => {
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 300
+        minWidth: 300,
     }
 
 })
-function BooksaleCards() {
+function BooksaleCards({booksale}) {
     const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false);
 
@@ -44,10 +44,10 @@ function BooksaleCards() {
   };
 
   return (
-    <Paper elevation={3}>
+    <Paper  elevation={6}>
         <Card className={classes.root} sx={{ maxWidth: 345 }}>
         <CardHeader
-            title="North Brunswick Public Library"
+            title= {booksale.library}
             subheader="September 14, 2016"
         />
         {/* <CardMedia 
