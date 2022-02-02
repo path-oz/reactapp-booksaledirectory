@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 import DropDown from "../components/DropDown";
 import USAMaps from "../components/USAMap";
-import Head from 'next/head'
 
 
 function HomePage() {
@@ -42,7 +41,6 @@ function HomePage() {
                 </Grid>
               </Grid>
             </div>
-            <div></div>
           </Container>
         </div>
       </main>

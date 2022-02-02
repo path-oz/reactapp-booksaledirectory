@@ -3,12 +3,16 @@ import {
   Container,
   CssBaseline,
 } from "@mui/material";
-import { connectToDatabase } from '../util/mongodb'
+import DropDown from "../components/DropDown";
+import BooksaleCards from "../components/BooksaleCards";
+import { Grid } from "@mui/material";
+import { connectToDatabse } from '../util/mongodb';
 
-export default function newjersey( ) {
+export default function newjersey({booksales}) {
 
 
   return (
+
     <>
       <CssBaseline />
       <main>
@@ -21,10 +25,48 @@ export default function newjersey( ) {
               gutterBottom
             >
               
+              
               New Jersey
             </Typography>
-            
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item>
+                <DropDown/>
+              </Grid>
+            </Grid>
+            <Grid container spacing={4}>
+              <Grid item xs={12} sm={6} md={4} xl={2}>
+                <BooksaleCards />
+              </Grid>
+              <Grid item xs={12} sm={6} md={4} xl={2}>
+                <BooksaleCards />
+              </Grid>
+              <Grid item xs={12} sm={6} md={4} xl={2}>
+                <BooksaleCards />
+              </Grid>
+              <Grid item xs={12} sm={6} md={4} xl={2}>
+                <BooksaleCards />
+              </Grid>
+              <Grid item xs={12} sm={6} md={4} xl={2}>
+                <BooksaleCards />
+              </Grid>
+            </Grid>
           </Container>
+
+        </div>
+        <div>
+          
+          {booksales.map((booksale) => (
+            <Typography
+              variant="h3"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              {booksale.library} 
+              {booksale.address.street}
+            </Typography>
+            
+          ))}
         </div>
       </main>
     </>
@@ -32,7 +74,7 @@ export default function newjersey( ) {
 };
 
 export async function getServerSideProps(context) {
-  const { db } = await connectToDatabase()
+  const { db } = await connectToDatabse()
 
   const data = await db.collection("states").find({}).limit(20).toArray();
 
@@ -40,7 +82,8 @@ export async function getServerSideProps(context) {
   console.log(booksales);
   const filtered = booksales.map(booksale => {
     return {
-      title: booksale.title
+      library: booksale.library,
+      address: booksale.address
     }
 
   })
