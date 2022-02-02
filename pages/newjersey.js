@@ -61,6 +61,8 @@ export default function newjersey({booksales}) {
               align="center"
               color="textPrimary"
               gutterBottom
+              key={booksale.id}
+
             >
               {booksale.library} 
               {booksale.address.street}
@@ -83,7 +85,7 @@ export async function getServerSideProps(context) {
   const filtered = booksales.map(booksale => {
     return {
       library: booksale.library,
-      address: booksale.address
+      address: booksale.address,
     }
 
   })
