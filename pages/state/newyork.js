@@ -3,10 +3,11 @@ import {
   Container,
   CssBaseline,
 } from "@mui/material";
-import DropDown from "../components/DropDown";
-import BooksaleCards from "../components/BooksaleCards";
+import DropDown from "../../components/DropDown";
+import BooksaleCards from "../../components/BooksaleCards";
 import { Grid } from "@mui/material";
-import { connectToDatabse } from '../util/mongodb';
+import { connectToDatabse } from '../../util/mongodb';
+import Head from "next/head";
 
 export default function newyork({booksales}) {
 
@@ -18,6 +19,10 @@ export default function newyork({booksales}) {
       <main>
         <div>
           <Container maxWidth="md">
+            <Head>
+              <title>NY Book Sales</title>
+              <meta name="viewport" property="og:title"  key="title" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <Typography
               variant="h2"
               align="center"

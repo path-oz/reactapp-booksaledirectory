@@ -36,9 +36,9 @@ export default function DropDown() {
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
     if(index === 1) {
-        window.location.assign("/newjersey")
+        window.location.assign("/state/newjersey")
     } else if (index === 2 ) {
-        window.location.assign("/newyork")
+        window.location.assign("/state/newyork")
     }
     setAnchorEl(null);
   };

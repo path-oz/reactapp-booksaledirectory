@@ -3,10 +3,11 @@ import {
   Container,
   CssBaseline,
 } from "@mui/material";
-import DropDown from "../components/DropDown";
-import BooksaleCards from "../components/BooksaleCards";
+import DropDown from "../../components/DropDown";
+import BooksaleCards from "../../components/BooksaleCards";
 import { Grid } from "@mui/material";
-import { connectToDatabse } from '../util/mongodb';
+import { connectToDatabse } from '../../util/mongodb';
+import Head from 'next/head'
 
 export default function newjersey({booksales}) {
 
@@ -18,6 +19,10 @@ export default function newjersey({booksales}) {
       <main>
         <div>
           <Container maxWidth="md">
+            <Head>
+              <title>NJ Book Sales</title>
+              <meta name="viewport" property="og:title"  key="title" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <Typography
               variant="h2"
               align="center"
@@ -26,14 +31,14 @@ export default function newjersey({booksales}) {
             >
               
               
-              New Jersey
+              New Jersey Book Sales
             </Typography>
             <Grid container spacing={2} justifyContent="center">
               <Grid item>
                 <DropDown/>
               </Grid>
             </Grid>
-            <Grid container spacing={4}>
+            <Grid container spacing={4} justifyContent="center">
               {booksales.map((booksale) => (
                 <Grid key={booksale.id} item xs={12} sm={6} md={4} xl={2}>
                   <BooksaleCards booksale={booksale} />
