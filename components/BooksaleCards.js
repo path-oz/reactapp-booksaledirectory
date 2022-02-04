@@ -32,7 +32,8 @@ const ExpandMore = styled((props) => {
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 300,
+        minWidth: 300
+        
     }
 
 })
@@ -45,31 +46,23 @@ function BooksaleCards({booksale}) {
   };
 
   return (
-    <Paper  elevation={6}>
         <Card className={classes.root} sx={{ maxWidth: 345 }}>
-        <CardHeader
-            title= {booksale.library}
-            subheader="September 14, 2016"
-        />
-        {/* <CardMedia 
-            sx={{ display: { xs: "none", md:"block", xl: "block" } }}
-            component="img"
-            height="194"
-            image="/static/images/cards/paella.jpg"
-            alt="Paella dish"
-        /> */}
-        <CardContent>
-            <Typography variant="body2" color="text.secondary">
-            This impressive paella is a perfect party dish and a fun meal to cook
-            together with your guests. Add 1 cup of frozen peas along with the mussels,
-            if you like.
-            </Typography>
-        </CardContent>
-        <CardActions>
-            <Button size="small">More Details</Button>
-        </CardActions>
+          <CardHeader
+              title= {booksale.library}
+              subheader="September 14, 2016"
+          />
+          <CardContent>
+              <Typography variant="body2" color="text.secondary">
+              This impressive paella is a perfect party dish and a fun meal to cook
+              together with your guests. Add 1 cup of frozen peas along with the mussels,
+              if you like.
+              </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Learn More</Button>
+          </CardActions>
         </Card>
-    </Paper>
+    
   );
 }
 

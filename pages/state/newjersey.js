@@ -9,6 +9,7 @@ import { Grid } from "@mui/material";
 import { connectToDatabse } from '../../util/mongodb';
 import Head from 'next/head'
 
+
 export default function newjersey({booksales}) {
 
 
@@ -38,7 +39,7 @@ export default function newjersey({booksales}) {
                 <DropDown/>
               </Grid>
             </Grid>
-            <Grid container spacing={6} justifyContent="center">
+            <Grid container spacing={6} >
               {booksales.map((booksale) => (
                 <Grid key={booksale.id} item xs={12} sm={6} md={4} xl={2}>
                   <BooksaleCards booksale={booksale} />
@@ -52,7 +53,7 @@ export default function newjersey({booksales}) {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps( ) {
   const { db } = await connectToDatabse();
 
   const data = await db.collection("states").find({"state":"New Jersey"}).limit(20).toArray();

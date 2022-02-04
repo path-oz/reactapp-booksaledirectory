@@ -52,7 +52,7 @@ export default function newyork({booksales}) {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps( ) {
   const { db } = await connectToDatabse();
 
   const data = await db.collection("states").find({"state":"New York"}).limit(20).toArray();

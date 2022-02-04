@@ -13,11 +13,11 @@ class USAMaps extends Component {
       return {
         "NJ": {
         
-          clickHandler: (event) => window.location.assign("/newjersey") 
+          clickHandler: (event) => window.location.assign("/state/newjersey") 
         },
         "NY": {
           
-          clickHandler: (event) => window.location.assign("/newyork")
+          clickHandler: (event) => window.location.assign("/state/newyork")
         }
       };
     };
