@@ -38,7 +38,7 @@ export default function newjersey({booksales}) {
                 <DropDown/>
               </Grid>
             </Grid>
-            <Grid container spacing={4} justifyContent="center">
+            <Grid container spacing={6} justifyContent="center">
               {booksales.map((booksale) => (
                 <Grid key={booksale.id} item xs={12} sm={6} md={4} xl={2}>
                   <BooksaleCards booksale={booksale} />
