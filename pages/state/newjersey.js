@@ -41,7 +41,7 @@ export default function newjersey({booksales}) {
             </Grid>
             <Grid container spacing={6} >
               {booksales.map((booksale) => (
-                <Grid key={booksale.id} item xs={12} sm={6} md={4} xl={2}>
+                <Grid key={booksale.id} item>
                   <BooksaleCards booksale={booksale} />
                 </Grid>
               ))}
@@ -56,7 +56,7 @@ export default function newjersey({booksales}) {
 export async function getServerSideProps( ) {
   const { db } = await connectToDatabse();
 
-  const data = await db.collection("states").find({"state":"New Jersey"}).limit(20).toArray();
+  const data = await db.collection("states").find({"state":"New Jersey"}).sort({"library":1}).limit(20).toArray();
 
   const booksales = JSON.parse(JSON.stringify(data));
   console.log(booksales);

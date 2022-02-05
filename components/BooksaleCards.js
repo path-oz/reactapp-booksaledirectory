@@ -32,7 +32,7 @@ const ExpandMore = styled((props) => {
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 300
+        background: '#ADD8E6'
         
     }
 
@@ -46,7 +46,7 @@ function BooksaleCards({booksale}) {
   };
 
   return (
-        <Card className={classes.root} sx={{ maxWidth: 345 }}>
+        <Card className={classes.root} >
           <CardHeader
               title= {booksale.library}
               subheader="September 14, 2016"
