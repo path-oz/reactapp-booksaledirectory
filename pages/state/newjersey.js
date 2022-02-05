@@ -41,7 +41,7 @@ export default function newjersey({booksales}) {
             </Grid>
             <Grid container spacing={6} >
               {booksales.map((booksale) => (
-                <Grid key={booksale.id} item>
+                <Grid key={booksale.id} item xs={6} md={4}>
                   <BooksaleCards booksale={booksale} />
                 </Grid>
               ))}
