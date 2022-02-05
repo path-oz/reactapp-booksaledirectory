@@ -46,6 +46,7 @@ function BooksaleCards({booksale}) {
   };
 
   return (
+    <Paper elevation={5}>
         <Card className={classes.root} >
           <CardHeader
               title= {booksale.library}
@@ -62,7 +63,7 @@ function BooksaleCards({booksale}) {
             <Button size="small">Learn More</Button>
           </CardActions>
         </Card>
-    
+    </Paper>
   );
 }
 
