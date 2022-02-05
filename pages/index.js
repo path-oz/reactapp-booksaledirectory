@@ -42,35 +42,7 @@ function HomePage() {
                 </Grid>
               </Grid>
             </div>
-            <div>
-              <Grid container spacing={4} justifyContent="center">
-                <Grid xs={12} sm={6} md={4} xl={2} item>
-                    <TestCard/>
-                </Grid>
-                <Grid xs={12} sm={6} md={4} xl={2} item>
-                    <TestCard/>
-                </Grid>
-                <Grid xs={12} sm={6} md={4} xl={2} item>
-                    <TestCard/>
-                </Grid>
-                <Grid xs={12} sm={6} md={4} xl={2} item>
-                    <TestCard/>
-                </Grid>
-                <Grid xs={12} sm={6} md={4} xl={2} item>
-                    <TestCard/>
-                </Grid>
-                <Grid xs={12} sm={6} md={4} xl={2} item>
-                    <TestCard/>
-                </Grid>
-                <Grid xs={12} sm={6} md={4} xl={2} item>
-                    <TestCard/>
-                </Grid>
-                <Grid xs={12} sm={6} md={4} xl={2} item>
-                    <TestCard/>
-                </Grid>
-
-              </Grid>
-            </div>
+           
           </Container>
         </div>
       </main>
