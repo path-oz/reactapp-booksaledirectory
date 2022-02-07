@@ -12,12 +12,15 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 
 const pages = ['Home', 'About Us', 'Blog', 'Press & Media', 'Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const AppBarComponent = () => {
+  const router = useRouter()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -37,7 +40,16 @@ const AppBarComponent = () => {
     setAnchorElUser(null);
   };
 
-
+  const handleClick = (e, path) => {
+    e.preventDefault()
+ 
+     if (path === "/") {
+      window.location.assign("/")
+     }
+     if (path === "/") {
+      window.location.assign("/")
+     }
+   };
 
   return (
     <AppBar position="static">
@@ -81,11 +93,7 @@ const AppBarComponent = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem><Link href={'/'}><Typography>Home</Typography></Link></MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -97,15 +105,11 @@ const AppBarComponent = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+      
+              
+                <Link href="/"><a><Typography variant="h6">Home</Typography></a></Link>
+              
+              
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -141,5 +145,6 @@ const AppBarComponent = () => {
       </Container>
     </AppBar>
   );
-};
+}
+
 export default AppBarComponent;

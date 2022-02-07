@@ -7,6 +7,8 @@ import * as gtag from '../lib/gtag'
 
 
 
+
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   useEffect(() => {
@@ -41,7 +43,9 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       <Layout>
-          <Component {...pageProps} />
+      
+        <Component {...pageProps} />
+      
       </Layout>
     </>
   

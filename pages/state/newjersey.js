@@ -19,7 +19,7 @@ export default function newjersey({booksales}) {
       <CssBaseline />
       <main>
         <div>
-          <Container maxWidth="md">
+          <Container maxWidth="md" >
             <Head>
               <title>NJ Book Sales</title>
               <meta name="viewport" property="og:title"  key="title" content="initial-scale=1.0, width=device-width" />
@@ -39,9 +39,9 @@ export default function newjersey({booksales}) {
                 <DropDown/>
               </Grid>
             </Grid>
-            <Grid container spacing={4} >
+            <Grid container spacing={2} >
               {booksales.map((booksale) => (
-                <Grid key={booksale.id} item xs={12} sm={6} md={4} xl={2}>
+                <Grid key={booksale.id} item >
                   <BooksaleCards booksale={booksale} />
                 </Grid>
               ))}
@@ -63,6 +63,15 @@ export async function getServerSideProps( ) {
   const filtered = booksales.map(booksale => {
     return {
       library: booksale.library,
+      city: booksale.city,
+      street: booksale.street,
+      state: booksale.state,
+      zipcode: booksale.zipcode,
+      phone: booksale.phone,
+      email: booksale.email,
+      websiteURL: booksale.websiteURL,
+      description: booksale.description,
+      moreinfo: booksale.moreinfo
     }
 
   })

@@ -14,10 +14,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Button } from '@mui/material';
-
+import { ClassNames } from '@emotion/react';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -31,41 +29,54 @@ const ExpandMore = styled((props) => {
 }));
 
 const useStyles = makeStyles({
-    root: {
-        background: '#ADD8E6'
-        
-    }
+  root: {
+      background: '#fffffe'
+      
+  }
 
 })
-function BooksaleCards({booksale}) {
-    const classes = useStyles()
+
+
+export default function BooksaleCards({booksale}) {
   const [expanded, setExpanded] = React.useState(false);
+  const classes = useStyles();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Paper elevation={5}>
-        <Card className={classes.root} >
-          <CardHeader
-              title= {booksale.library}
-              subheader="September 14, 2016"
-          />
-          <CardContent>
-              <Typography variant="body2" color="text.secondary">
-              This impressive paella is a perfect party dish and a fun meal to cook
-              together with your guests. Add 1 cup of frozen peas along with the mussels,
-              if you like.
-              </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
-    </Paper>
+    <Card className={classes.root}>
+      <CardHeader
+        title={booksale.library}
+        subheader={booksale.city}
+      />
+      <CardContent>
+          {booksale.description}
+        
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>Address:</Typography>
+          <Typography paragraph>
+            {booksale.street},{booksale.city},{booksale.state} {booksale.zipcode}
+          </Typography>
+          <Typography paragraph> Phone Number: {booksale.phone}</Typography>
+          <Typography paragraph> Email: {booksale.email}</Typography>
+          <Typography paragraph> Website: {booksale.websiteURL}</Typography>
+          <Typography paragraph> Sale Information: {booksale.moreinfo}</Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
   );
 }
-
-export default BooksaleCards;
-

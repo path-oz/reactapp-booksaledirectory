@@ -8,6 +8,7 @@ import BooksaleCards from "../../components/BooksaleCards";
 import { Grid } from "@mui/material";
 import { connectToDatabse } from '../../util/mongodb';
 import Head from "next/head";
+import { makeStyles } from "@mui/styles";
 
 export default function newyork({booksales}) {
 
