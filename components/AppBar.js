@@ -1,5 +1,4 @@
-import * as React from 'react'
-
+import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,18 +11,14 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 
-
-const pages = ['Home', 'About Us', 'Blog', 'Press & Media', 'Contact Us'];
+const pages = ['Home', 'Blog', 'Press & Media', 'About Us', "Contact Us"];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const AppBarComponent = () => {
-  const router = useRouter()
+const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,7 +27,19 @@ const AppBarComponent = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (event,index) => {
+    setSelectedIndex(index);
+    if(index === 0) {
+        window.location.assign("/")
+    } else if (index === 1 ) {
+        window.location.assign("/blog")
+    } else if (index === 2 ) {
+        window.location.assign("/press&media")
+    } else if (index === 3 ) {
+        window.location.assign("/aboutus")
+    } else if (index === 4 ) {
+        window.location.assign("/contactus")
+    }
     setAnchorElNav(null);
   };
 
@@ -40,16 +47,6 @@ const AppBarComponent = () => {
     setAnchorElUser(null);
   };
 
-  const handleClick = (e, path) => {
-    e.preventDefault()
- 
-     if (path === "/") {
-      window.location.assign("/")
-     }
-     if (path === "/") {
-      window.location.assign("/")
-     }
-   };
 
   return (
     <AppBar position="static">
@@ -93,7 +90,15 @@ const AppBarComponent = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <MenuItem><Link href={'/'}><Typography>Home</Typography></Link></MenuItem>
+              {pages.map((page,index) => (
+                <MenuItem 
+                  key={page} 
+                  selected={index === selectedIndex} 
+                  onClick={(event) => handleCloseNavMenu(event, index)}
+                >
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
             </Menu>
           </Box>
           <Typography
@@ -105,11 +110,16 @@ const AppBarComponent = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-      
-              
-                <Link href="/"><a><Typography variant="h6">Home</Typography></a></Link>
-              
-              
+            {pages.map((page,index) => (
+              <Button
+                key={page} 
+                selected={index === selectedIndex} 
+                onClick={(event) => handleCloseNavMenu(event, index)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -135,7 +145,7 @@ const AppBarComponent = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
@@ -145,6 +155,5 @@ const AppBarComponent = () => {
       </Container>
     </AppBar>
   );
-}
-
-export default AppBarComponent;
+};
+export default ResponsiveAppBar;
