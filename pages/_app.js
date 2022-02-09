@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
+        {/* <link rel="stylesheet" type="text/css" href="/nprogress.css" /> */}
       </Head>
        {/* Global Site Tag (gtag.js) - Google Analytics */}
        <Script
