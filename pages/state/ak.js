@@ -10,7 +10,8 @@ import { connectToDatabse } from '../../util/mongodb';
 import Head from 'next/head'
 
 
-export default function newjersey({booksales}) {
+
+export default function ak({booksales}) {
 
 
   return (
@@ -21,7 +22,7 @@ export default function newjersey({booksales}) {
         <div>
           <Container maxWidth="md" >
             <Head>
-              <title>NJ Book Sales</title>
+              <title>AK Book Sales</title>
               <meta name="viewport" property="og:title"  key="title" content="initial-scale=1.0, width=device-width" />
             </Head>
             <Typography
@@ -32,7 +33,7 @@ export default function newjersey({booksales}) {
             >
               
               
-              New Jersey Book Sales
+              Alaska Book Sales
             </Typography>
             <Grid container spacing={2} justifyContent="center">
               <Grid item>
@@ -48,6 +49,7 @@ export default function newjersey({booksales}) {
             </Grid>
           </Container>
         </div>
+
       </main>
     </>
   );
@@ -56,7 +58,7 @@ export default function newjersey({booksales}) {
 export async function getServerSideProps( ) {
   const { db } = await connectToDatabse();
 
-  const data = await db.collection("states").find({"state":"New Jersey"}).sort({"library":1}).limit(20).toArray();
+  const data = await db.collection("states").find({"state":"Alaska"}).sort({"library":1}).limit(20).toArray();
 
   const booksales = JSON.parse(JSON.stringify(data));
   console.log(booksales);
@@ -68,7 +70,6 @@ export async function getServerSideProps( ) {
       state: booksale.state,
       zipcode: booksale.zipcode,
       phone: booksale.phone,
-      email: booksale.email,
       websiteURL: booksale.websiteURL,
       description: booksale.description,
       moreinfo: booksale.moreinfo

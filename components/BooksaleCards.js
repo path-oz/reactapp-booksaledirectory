@@ -72,7 +72,6 @@ export default function BooksaleCards({booksale}) {
             {booksale.street},{booksale.city},{booksale.state} {booksale.zipcode}
           </Typography>
           <Typography paragraph> Phone Number: {booksale.phone}</Typography>
-          <Typography paragraph> Email: {booksale.email}</Typography>
           <Typography paragraph> Website: {booksale.websiteURL}</Typography>
           <Typography paragraph> Sale Information: {booksale.moreinfo}</Typography>
         </CardContent>
