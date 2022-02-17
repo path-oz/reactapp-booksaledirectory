@@ -58,7 +58,7 @@ export default function ak({booksales}) {
 export async function getServerSideProps( ) {
   const { db } = await connectToDatabse();
 
-  const data = await db.collection("states").find({"state":"Alaska"}).sort({"library":1}).limit(20).toArray();
+  const data = await db.collection("states").find({"state":"New Jersey"}).sort({"library":1}).limit(20).toArray();
 
   const booksales = JSON.parse(JSON.stringify(data));
   console.log(booksales);

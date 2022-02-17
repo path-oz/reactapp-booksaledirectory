@@ -56,7 +56,7 @@ export default function newyork({booksales}) {
 export async function getServerSideProps( ) {
   const { db } = await connectToDatabse();
 
-  const data = await db.collection("states").find({"state":"New York"}).limit(20).toArray();
+  const data = await db.collection("states").find({"state":"New Jersey"}).limit(20).toArray();
 
   const booksales = JSON.parse(JSON.stringify(data));
   console.log(booksales);
