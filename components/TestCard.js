@@ -27,12 +27,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const useStyles = makeStyles({
-    root: {
-        minWidth: 300,
-    }
 
-})
 
 export default function TestCard() {
     const classes = useStyles()

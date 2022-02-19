@@ -10,21 +10,15 @@ import USAMaps from "../components/USAMap";
 import TestCard from "../components/TestCard";
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles({
-  root: {
-      background: '#fffffe'
-      
-  }
 
-})
 
 function HomePage() {
-  const classes = useStyles();
+
   return (
     <>
       <CssBaseline />
       <main>
-        <div className={classes.root}>
+        <div>
           <Container maxWidth="md">
             
             <Typography

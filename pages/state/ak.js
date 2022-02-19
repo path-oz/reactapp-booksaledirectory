@@ -13,7 +13,6 @@ import Head from 'next/head'
 
 export default function ak({booksales}) {
 
-
   return (
 
     <>
@@ -56,6 +55,7 @@ export default function ak({booksales}) {
 };
 
 export async function getServerSideProps( ) {
+  
   const { db } = await connectToDatabse();
 
   const data = await db.collection("states").find({"state":"New Jersey"}).sort({"library":1}).limit(20).toArray();

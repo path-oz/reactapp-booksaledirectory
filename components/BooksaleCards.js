@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { makeStyles } from '@mui/styles';
 import { ClassNames } from '@emotion/react';
-
+import { Paper } from '@mui/material';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -28,54 +28,50 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const useStyles = makeStyles({
-  root: {
-      background: '#fffffe'
-      
-  }
 
-})
 
 
 export default function BooksaleCards({booksale}) {
   const [expanded, setExpanded] = React.useState(false);
-  const classes = useStyles();
+ 
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card className={classes.root}>
-      <CardHeader
-        title={booksale.library}
-        subheader={booksale.city}
-      />
-      <CardContent>
-          {booksale.description}
-        
-      </CardContent>
-      <CardActions disableSpacing>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+    <Paper elevation={3}>
+      <Card >
+        <CardHeader
+          title={booksale.library}
+          subheader={booksale.city}
+        />
         <CardContent>
-          <Typography paragraph>Address:</Typography>
-          <Typography paragraph>
-            {booksale.street},{booksale.city},{booksale.state} {booksale.zipcode}
-          </Typography>
-          <Typography paragraph> Phone Number: {booksale.phone}</Typography>
-          <Typography paragraph> Website: {booksale.websiteURL}</Typography>
-          <Typography paragraph> Sale Information: {booksale.moreinfo}</Typography>
+            {booksale.description}
+          
         </CardContent>
-      </Collapse>
-    </Card>
+        <CardActions disableSpacing>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Address:</Typography>
+            <Typography paragraph>
+              {booksale.street},{booksale.city},{booksale.state} {booksale.zipcode}
+            </Typography>
+            <Typography paragraph> Phone Number: {booksale.phone}</Typography>
+            <Typography paragraph> Website: {booksale.websiteURL}</Typography>
+            <Typography paragraph> Sale Information: {booksale.moreinfo}</Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    </Paper>
   );
 }

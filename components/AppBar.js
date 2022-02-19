@@ -13,20 +13,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles({
-  root: {
-      background: '#fffffe'
-      
-  }
-
-})
 
 
 const pages = ['Home', 'Blog', 'Press & Media', 'About Us', "Contact Us"];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const AppBarComponent = () => {
-  const classes = useStyles();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -69,7 +62,7 @@ const AppBarComponent = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            BSH
+          BSH
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -118,7 +111,7 @@ const AppBarComponent = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            BSH
+          BSH
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page,index) => (
